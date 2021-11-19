@@ -11,29 +11,51 @@
 <body>
 
 <style>
+
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+
     .cardImg {
         width: 300px;
-        position: absolute;
+        position: relative;
     }
 </style>
 
-<button id="btn">MOVE</button>
-<div class="cardImg">
-    <img src="img/j03.jpg">
+<div class="container">
+    <div class="cardImg">
+        <img src="img/j03.jpg">
+        <button class="btn">MOVE</button>
+    </div>
+    <div class="cardImg">
+        <img src="img/j03.jpg">
+        <button class="btn">MOVE</button>
+    </div>
+    <div class="cardImg">
+        <img src="img/j03.jpg">
+        <button class="btn">MOVE</button>
+    </div>
 </div>
-
 <script>
     $(document).ready(function() {
-        $("#btn").on("click", function(e){
+        $(".btn").on("click", function(e){
 
-            const cardImg = $(".cardImg")
+            const cardImg = $(e.target).closest(".cardImg")
 
             cardImg.animate({
-                left: "+=500",
+                left: "+=100vw",
                 'opacity': "0.1"
             }, 1000, function() {
                 cardImg.animate({
-                    left: "-=500",
+                    left: "-=100vw",
                     'opacity': "1"
                 },1000)
             })
