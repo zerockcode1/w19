@@ -10,6 +10,15 @@
 </head>
 <body>
 
+<style>
+    ul {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
 <ul>
     <li><img src="img/j04.jpg"><span>X</span></li>
     <li><img src="img/j02.jpg"><span>X</span></li>
@@ -19,7 +28,12 @@
 <script>
     $(document).ready(function(e){
         $("ul").on("click","span", function(e){
-            $(e.target).closest("li").hide(2000)
+
+            const targetEle = $(e.target).closest("li")
+
+            targetEle.hide(2000, function(){
+                targetEle.remove()
+            })
         })
     })
 </script>
